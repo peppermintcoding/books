@@ -26,7 +26,8 @@ In other cases the parallel planes with different distances from the pinhole hav
 $$x = -mX$$
 $$y = -mY$$
 
-$$ where m = -\frac{d}{Z}$$
+where 
+$$m = -\frac{d}{Z}$$
 
 ### Camera with Lenses
 
