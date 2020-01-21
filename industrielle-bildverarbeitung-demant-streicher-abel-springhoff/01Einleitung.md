@@ -37,3 +37,24 @@ Man kann Aufgaben nach dem verfolgten Ziel oder nach der Struktur der Vorgehensw
 * 3D-Bildverarbeitung
 
 ## Aufbau von Bildverarbeitungssystemen
+
+Jedes Bildverarbeitungssystem besteht grob aus drei Blöcken: *Sensoren*, *Rechnern* und *Mommunikationseinheiten*.
+
+Als Sensoren können unter anderem Kameras, andere bildgebende Sensoren wie etwa Laserabtast- oder Ultraschallsensoren. Scanner ähnliche Sensoren sind aufgrund ihrer langsamen Geschwindigkeit meist unbrauchbar in der Praxis. Zur Übertragung der Daten werden meist Bluetooth, Ethernet, USB oder neuerdings auch vermehrt WLAN benutzt. 
+
+Bei datenintensiven Auswertungen, wie etwa der Produktion von Stahl, Papier oder Textilien werden meist speizalisierte Parallelrechner verwendet. Durch die Verbreitung von multicore PCs können viele dieser Aufgaben aber auch vermehrt auf handelsüblichen PCs bewältigt werden. Auch die steigende Durchsatzrate des Datenflusses hatte eine positive Auswirkung auf den Einsatz von Bildverarbeitung im allgemeinen.
+
+Das System muss im Gleichtakt mit dem Produktionsprozess arbeiten und sich von außen steuern lassen, es muss seine Ergebnisse nach außen melden und automatisch Ergebnisse verarbeiten können. Mittelfristig wird diese Steuerung wohl auch über das Internet funktionieren und somit die Steuerung von überall ermöglichen. Jedoch sind hier die Sicherheitsrisiken zu bedenken und abzuwägen.
+
+Der Signalfluss eines Bildverarbeitungssystems ist denkbar einfach: das System nimmt ein Bild auf, analysiert es und übersetzt es in eine Aussage. Dabei ist die Aussage sehr individuell. Es kann Aussage über Qualität mittels eines Zahlenwertes, einer Gut/Schlecht-Aussage oder ein physisches Signal getroffen werden. Das aufgenommene Bild wird meist als eine Matrix aus Zahlen oder mehrerer Matrizen dargestellt. Hierbei unterscheidet man zwei Faktoren: *Rasterung* und *Quantisierung*.
+Die Rasterung beschreibt die Anzahl der Pixel, die ein Bild am Ende besitzt. Der eintretende Informationsverlust richtet sich nach dem *Shannonschen Abtasttheorem*. Der Abstand zwischen zwei Bildpunkten darf höchstens halb so groß sein wie das kleinste relevante Detail des realen Objekts.
+Als Quantisierung wird die Spanne an möglichen Helligkeitswerten bezeichnet. Diese ist aufgrund von Speicher und Verarbeitungszeit meist sehr viel kleiner als durch die Sensoren möglich wäre. Hierbei werden oft 8 Bit pro Farbkanal oder Helligkeitsstufe genutzt, da sie dem internen Speichersystem eines jeden modernen Computers folgen. Es ist anzumerken, dass das menschliche Auge nur etwa 30 verschiedene Graustufen unterscheiden kann, ein Byte an Speicher aber 256 zulässt. Es kommt somit eher auf die Art der Ausleuchtung und auf den Kontrast im Bild an.
+
+Der Signalfluss innerhalb des Verarbeitungssystems wird dann in drei Ebenen unterteilt:
+* die *ikonische* Ebene beschreibt das ankommende gerasterte und quantisierte Bild
+* im Inneren wird dieses Bild dann in der *Objekt-Ebene* in eine Art von Datenstruktur umgewandelt, welche etwa eine Beschreibung der Größe oder Form des Objekts besitzt. Dies wird als *Segmentierung* bezeichnet.
+* in der *symbolischen* Ebene werden dann eines oder mehrerer dieser Objekte zu einer Aussage zusammengeführt. Hierbei wird aus vielen Daten durch eine Reduktion Wissen gewonnen.
+
+
+
+
